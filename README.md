@@ -116,14 +116,6 @@ var content = data.template('template/foobar.css');
 console.log(content); // =>> .image-flag {\n...
 ```
 
-```css
-/* lodash.css */
-.image-flag {
-    background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-    border-radius: 2px;
-}
-```
-
 DEVELOPING
 ----------
 
