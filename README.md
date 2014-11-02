@@ -96,7 +96,7 @@ fs.writeFile('lodash.css');
 
 ### Create a template adapter
 
-Some templates engines does not have a shorthand to compile + render at the same call. In this specific cases we can create a template wrapper as the example bellow:
+Some template engines does not have a shorthand to compile + render at the same call. In this specific cases we can create a template wrapper as the example bellow:
 
 ```js
 var DataURI    = require('datauri.template'),
