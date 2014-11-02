@@ -1,0 +1,44 @@
+{
+  "name": "datauri.template",
+  "version": "0.0.1",
+  "description": "Wraps datauri module with template support",
+  "main": "index.js",
+  "scripts": {
+    "test": "make ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/heldr/datauri.template.git"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "keywords": [
+    "datauri",
+    "data uri",
+    "data-uri",
+    "template",
+    "preprocessor",
+    "optimization",
+    "uri",
+    "optimize",
+    "inline",
+    "png",
+    "jpg",
+    "woff",
+    "base64"
+  ],
+  "author": "Helder Santana",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "handlebars": "^2.0.0",
+    "jshint": "^2.5.8",
+    "lodash.template": "^2.4.1",
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "datauri": "^0.5.5",
+    "hogan.js": "^3.0.2"
+  }
+}

@@ -1,0 +1,3 @@
+.image-<%= classNameSuffix %> {
+    background: url("<%= dataURISchema %>");
+}
