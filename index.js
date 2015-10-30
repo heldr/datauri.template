@@ -5,13 +5,13 @@ var DataURI = require('datauri'),
     path    = require('path'),
     fs      = require('fs');
 
-DataURI.prototype.templateAdapter = function (templateContent, param) {
-    var engine = null;
+DataURI.prototype.templateAdapter = function (templateContent, param, engine) {
+    engine = engine || hogan;
 
     if (!param || typeof param !== 'function') {
-        engine = hogan.compile(templateContent);
+        var template = engine.compile(templateContent);
 
-        return engine.render.bind(engine);
+        return template.render.bind(template);
     }
 
     return param.bind(param, templateContent);
@@ -19,7 +19,11 @@ DataURI.prototype.templateAdapter = function (templateContent, param) {
 
 DataURI.prototype.template = function () {
     var data           = (arguments.length > 2) ? arguments[2] : arguments[1],
-        templateEngine = this.templateAdapter(fs.readFileSync(arguments[0], 'utf-8'), arguments[1]);
+        templateEngine = this.templateAdapter(
+            fs.readFileSync(arguments[0], 'utf-8'),
+            arguments[1],
+            (arguments.length > 2) && arguments[1]
+        );
 
     data                 = data || {};
     data.dataURISchema   = this.content;
