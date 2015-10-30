@@ -63,31 +63,30 @@ fs.writeFile('variables.compiled.css');
 
 ### Custom template engine
 
-Consider lodash.template as example. If your favorite template engine does support a compile + render shorthand, you just need to point the handler after a given template path, otherwise you will need to create a template adapter.
+Consider nunjucks as example. If your favorite template engine does support a compile + render shorthand, you just need to point the handler after a given template path, otherwise you will need to create a template adapter.
 
 ```css
-/* lodash.css */
-.image-<%= classNameSuffix %> {
-    background: url("<%= dataURISchema %>");
-    border-radius: <%= borderRadius %>;
+/* nunjucks.css */
+.image-{{ classNameSuffix }} {
+    background: url("{{ dataURISchema }}");
+    border-radius: {{ borderRadius }};
 }
 ```
 
 ```js
-var fs      = require('fs'),
-    DataURI = require('datauri.template'),
-    _       = require('lodash'), // or lodash.template for custom builds
-    handleb = require('handlebars'), // or lodash.template for custom builds
-    data    = new DataURI('test/flag.gif');
-    content = data.template('template/lodash.css', _.template, {
+var fs          = require('fs'),
+    DataURI     = require('datauri.template'),
+    nunjucks    = require('nunjucks'),
+    data        = new DataURI('test/flag.gif');
+    content     = data.template('template/nunjucks.css', nunjucks, {
         borderRadius: '2px'
     });
 
-fs.writeFile('lodash.css');
+fs.writeFile('nunjucks.css');
 ```
 
 ```css
-/* lodash.css */
+/* nunjucks.css */
 .image-flag {
     background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
     border-radius: 2px;
